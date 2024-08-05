@@ -14,8 +14,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* Button styling */
-        .button {
+        /* Portfolio button styling */
+        .portfolioButton {
             position: fixed;
             top: 10px;
             right: 10px;
@@ -32,13 +32,13 @@
             transition: all 0.3s ease; /* Smooth transition for animation */
         }
 
-        /* Button hover effect */
-        .button:hover {
+        /* Portfolio button hover effect */
+        .portfolioButton:hover {
             background-color: #e6002b; /* Darker shade of red */
         }
 
-        /* Button move to center on scroll */
-        .scrolled .button {
+        /* Portfolio button move to center on scroll */
+        .scrolled .portfolioButton {
             top: 50%;
             right: 50%;
             transform: translate(50%, -50%); /* Center the button */
@@ -47,20 +47,21 @@
 </head>
 <body>
 
-    <a href="https://drive.google.com/drive/folders/1d_Tn79dDzGv9qGejlcZsZ-6Ex7Xpautw" class="button">Video Editing Portfolio</a>
+    <a href="https://drive.google.com/drive/folders/1d_Tn79dDzGv9qGejlcZsZ-6Ex7Xpautw" class="portfolioButton">Video Editing Portfolio</a>
 
     <script>
         window.addEventListener('scroll', function() {
-            var button = document.querySelector('.button');
+            var portfolioButton = document.querySelector('.portfolioButton');
             if (window.scrollY > 100) { // Adjust the scroll threshold as needed
-                button.classList.add('scrolled');
+                portfolioButton.classList.add('scrolled');
             } else {
-                button.classList.remove('scrolled');
+                portfolioButton.classList.remove('scrolled');
             }
         });
     </script>
 </body>
 </html>
+
 
 </html>
 

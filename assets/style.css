@@ -1488,31 +1488,58 @@ span {
 
 /* Skills section */
 
-.skill-bar {
+.skills {
+    background: #f0f0f0; /* Assuming this is the background you want */
+    padding: 50px 0; /* Adjust padding as necessary */
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Add space between cards */
+}
+
+.skills .service-box {
+    flex: 1 1 calc(33.333% - 20px); /* Adjust width and margin */
+    margin-bottom: 20px; /* Add bottom margin for spacing between rows */
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.skills .service-info h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.skills .skill-bar {
+    position: relative;
+    height: 40px;
     background: #ddd;
     border-radius: 10px;
     overflow: hidden;
     margin-top: 10px;
+}
+
+.skills .skill-progress {
+    height: 100%;
+    background: #3b82f6;
+    border-radius: 10px 0 0 10px;
     position: relative;
 }
 
-.skill-progress {
-    height: 10px;
-    border-radius: 10px;
-    background-color: black;
-    width: 0;
-    transition: width 0.6s ease;
-}
-
-.skill-percentage {
+.skills .skill-percentage {
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 14px;
     color: #fff;
+    font-weight: bold;
 }
 
 }
-
 

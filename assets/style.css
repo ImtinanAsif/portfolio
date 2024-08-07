@@ -1489,7 +1489,7 @@ span {
 /* Skills section */
 
 .skill-progress {
-    height: 10px;
+    height: 40px;
     border-radius: 10px;
     background-color: black;
     width: 0;

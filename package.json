@@ -1,0 +1,18 @@
+{
+  "name": "imtinan-services-website",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@react-three/drei": "^9.56.6",
+    "@react-three/fiber": "^8.13.4",
+    "@splinetool/react-spline": "^1.0.12",
+    "framer-motion": "^10.12.16",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "zustand": "^4.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  }
+}

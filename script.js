@@ -6,25 +6,10 @@ function raf(time) {
 }
 requestAnimationFrame(raf)
 
-// 2. MAGNETIC CURSOR
+// 2. CURSOR
 const cursor = document.querySelector('.cursor');
 window.addEventListener('mousemove', (e) => {
-    gsap.to(cursor, {
-        x: e.clientX,
-        y: e.clientY,
-        duration: 0.4,
-        ease: "power2.out"
-    });
-});
-
-// Cursor Interactions
-document.querySelectorAll('a, .project-card, .big-cta, .timeline-row').forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        gsap.to(cursor, { scale: 5, backgroundColor: "transparent", border: "0.5px solid #d4ff00" });
-    });
-    item.addEventListener('mouseleave', () => {
-        gsap.to(cursor, { scale: 1, backgroundColor: "#d4ff00", border: "none" });
-    });
+    gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.5, ease: "power2.out" });
 });
 
 // 3. GSAP REVEALS
@@ -32,37 +17,43 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Hero Reveal
 const tl = gsap.timeline();
-tl.from(".reveal-text", {
-    y: 200, skewY: 7, duration: 1.5, stagger: 0.2, ease: "power4.out"
-}).from(".nav", { opacity: 0, y: -20, duration: 1 }, "-=1");
+tl.from(".reveal-text", { y: 200, skewY: 10, duration: 1.5, stagger: 0.2, ease: "power4.out" })
+  .from(".nav", { opacity: 0, y: -20, duration: 1 }, "-=1");
 
-// Section Heading Reveal
-gsap.utils.toArray('.section-header').forEach(header => {
-    gsap.from(header, {
-        width: 0, opacity: 0, duration: 1.5, ease: "power4.out",
-        scrollTrigger: { trigger: header, start: "top 90%" }
-    });
+// Card Entrance
+gsap.from(".skill-card", {
+    y: 100, opacity: 0, stagger: 0.2, duration: 1, ease: "power3.out",
+    scrollTrigger: { trigger: ".card-grid", start: "top 80%" }
 });
 
-// Image Parallax Effect
-gsap.utils.toArray('.img-reveal img').forEach(img => {
-    gsap.to(img, {
-        yPercent: 15, ease: "none",
-        scrollTrigger: { trigger: img, scrub: true }
-    });
+// Form Entrance
+gsap.from(".contact-form > *", {
+    x: 50, opacity: 0, stagger: 0.1, duration: 1,
+    scrollTrigger: { trigger: ".contact-form", start: "top 80%" }
 });
 
-// Big CTA Color Interaction
-const cta = document.querySelector('.big-cta');
-cta.addEventListener('mousemove', (e) => {
-    const { offsetX, offsetY, target } = e;
-    const { clientWidth, clientHeight } = target;
-    const xPos = (offsetX / clientWidth) - 0.5;
-    const yPos = (offsetY / clientHeight) - 0.5;
+// 4. GMAIL REDIRECTION LOGIC
+const form = document.getElementById('portfolio-form');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
     
-    gsap.to(cta, {
-        rotationY: xPos * 20,
-        rotationX: -yPos * 20,
-        duration: 0.5
-    });
+    const name = document.getElementById('user-name').value;
+    const email = document.getElementById('user-email').value;
+    const message = document.getElementById('user-message').value;
+    
+    // Build Gmail Link
+    const subject = encodeURIComponent(`Project Inquiry from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    
+    // Redirects to Gmail App/Web
+    window.location.href = `mailto:your-email@gmail.com?subject=${subject}&body=${body}`;
+});
+
+// 5. BUTTON ANIMATION
+const btn = document.querySelector('.send-btn');
+btn.addEventListener('mouseenter', () => {
+    gsap.to(cursor, { scale: 5, backgroundColor: "transparent", border: "1px solid #befb24" });
+});
+btn.addEventListener('mouseleave', () => {
+    gsap.to(cursor, { scale: 1, backgroundColor: "#befb24", border: "none" });
 });

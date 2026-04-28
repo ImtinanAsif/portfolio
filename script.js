@@ -1,49 +1,67 @@
-/* ================= TYPED JS ================= */
-const typed = new Typed('#typed-text', {
-    strings: ['Web Developer', 'Graphic Designer', 'Video Editor', 'Freelancer'],
-    typeSpeed: 70,
-    backSpeed: 70,
-    backDelay: 1000,
-    loop: true
+/* ================= CUSTOM CURSOR LOGIC ================= */
+const cursorDot = document.querySelector(".cursor-dot");
+const cursorOutline = document.querySelector(".cursor-outline");
+
+window.addEventListener("mousemove", (e) => {
+    const posX = e.clientX;
+    const posY = e.clientY;
+
+    cursorDot.style.left = `${posX}px`;
+    cursorDot.style.top = `${posY}px`;
+
+    cursorOutline.animate({
+        left: `${posX}px`,
+        top: `${posY}px`
+    }, { duration: 500, fill: "forwards" });
+});
+
+// Cursor Hover Effect
+const interactiveElements = document.querySelectorAll('a, .btn, i, .service-card');
+interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        cursorOutline.style.width = '80px';
+        cursorOutline.style.height = '80px';
+        cursorOutline.style.backgroundColor = 'rgba(34, 211, 238, 0.1)';
+    });
+    el.addEventListener('mouseleave', () => {
+        cursorOutline.style.width = '40px';
+        cursorOutline.style.height = '40px';
+        cursorOutline.style.backgroundColor = 'transparent';
+    });
+});
+
+/* ================= TYPED TEXT ================= */
+new Typed('#typed-text', {
+    strings: ['Web Engineer', 'Creative Designer', 'Motion Artist'],
+    typeSpeed: 60,
+    backSpeed: 40,
+    loop: true,
+    cursorChar: '_'
 });
 
 /* ================= SCROLL REVEAL ================= */
-ScrollReveal({
-    distance: '80px',
-    duration: 2000,
-    delay: 200
+const sr = ScrollReveal({
+    origin: 'bottom',
+    distance: '60px',
+    duration: 1500,
+    delay: 200,
+    reset: true
 });
 
-ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img, .services-container, .timeline-items, .contact form', { origin: 'bottom' });
-ScrollReveal().reveal('.home-content h1', { origin: 'left' });
-ScrollReveal().reveal('.home-content p', { origin: 'right' });
+sr.reveal('.welcome-tag, h1, .btn-group', { interval: 200 });
+sr.reveal('.service-card', { interval: 150 });
+sr.reveal('.home-img', { origin: 'right', scale: 0.8 });
 
-/* ================= MOBILE MENU ================= */
-const menuIcon = document.querySelector('#menu-icon');
-const navbar = document.querySelector('.navbar');
-
-menuIcon.onclick = () => {
-    menuIcon.classList.toggle('fa-xmark');
-    navbar.classList.toggle('active');
-};
-
-/* ================= ACTIVE LINKS ON SCROLL ================= */
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
-
-window.onscroll = () => {
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
-
-        if(top >= offset && top < offset + height) {
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
-            });
-        };
+/* ================= MAGNETIC EFFECT (Extra Credit) ================= */
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+        const position = btn.getBoundingClientRect();
+        const x = e.pageX - position.left - position.width / 2;
+        const y = e.pageY - position.top - position.height / 2;
+        
+        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.5}px)`;
     });
-};
+    btn.addEventListener('mouseout', () => {
+        btn.style.transform = `translate(0px, 0px)`;
+    });
+});

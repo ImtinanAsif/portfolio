@@ -1,0 +1,31 @@
+/* Use the "Elite CSS" provided in the previous response */
+/* Key additions for your specific repo: */
+
+.home-img img {
+    width: 32vw;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border: 4px solid var(--main-color);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* The "Blob" Shape */
+    animation: morph 8s ease-in-out infinite;
+    box-shadow: var(--glow);
+}
+
+@keyframes morph {
+    0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+}
+
+/* Service Box Glassmorphism */
+.service-box {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.4s var(--ease-out);
+}
+
+.service-box:hover {
+    border-color: var(--main-color);
+    transform: translateY(-10px) scale(1.02);
+    background: rgba(0, 150, 255, 0.05);
+}

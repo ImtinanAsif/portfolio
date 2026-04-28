@@ -3,84 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMTINAN | Portfolio Elite</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;800&display=swap" rel="stylesheet">
+    <title>IMTINAN ASIF | OFFICIAL</title>
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Responsive Interactive Background -->
-    <canvas id="canvas-bg"></canvas>
+    <!-- Grain Overlay for Texture -->
+    <div class="noise"></div>
 
-    <!-- Magnetic Custom Cursor -->
-    <div class="cursor-follower"></div>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
 
-    <header class="header">
-        <a href="#" class="logo">IMTINAN<span class="neon-dot">.</span></a>
-        <div class="nav-toggle" id="menu-icon"><span></span></div>
-        <nav class="navbar">
-            <a href="#home" class="nav-item active">Home</a>
-            <a href="#services" class="nav-item">Expertise</a>
+    <nav class="nav">
+        <div class="nav-brand">IMTINAN ASIF</div>
+        <div class="nav-links">
             <a href="#work" class="nav-item">Work</a>
+            <a href="#about" class="nav-item">About</a>
             <a href="#contact" class="nav-item">Contact</a>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <main>
-        <section class="home" id="home">
-            <div class="hero-content">
-                <div class="badge neon-border">Available for Global Projects</div>
-                <h1 class="hero-title">CREATIVE <br> <span class="neon-text">DEVELOPER</span></h1>
-                <p class="hero-subtext">I transform bold ideas into digital gold. Specializing in high-performance web engineering and high-fidelity visual design.</p>
-                
-                <div class="cta-wrapper">
-                    <a href="#contact" class="neon-btn">
-                        <span>LAUNCH PROJECT</span>
-                        <div class="btn-glow"></div>
-                    </a>
-                </div>
+    <main data-scroll-container>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-title-wrapper">
+                <h1 class="reveal-text">CREATIVE</h1>
+                <h1 class="reveal-text outline">DEVELOPER</h1>
             </div>
-
-            <div class="hero-visual">
-                <div class="neon-frame">
-                    <img src="https://via.placeholder.com/600" alt="Imtinan Asif" class="profile-img">
-                </div>
+            <div class="hero-footer">
+                <p>Based in Pakistan / Available Worldwide</p>
+                <div class="scroll-indicator">SCROLL</div>
             </div>
         </section>
 
-        <section class="services" id="services">
-            <div class="section-info">
-                <h2 class="section-title">CORE <span class="neon-text">SKILLS</span></h2>
-            </div>
-            
-            <div class="grid-container">
-                <div class="neon-card">
-                    <div class="card-content">
-                        <i class="fa-solid fa-microchip"></i>
-                        <h3>Architecture</h3>
-                        <p>Building resilient, scalable web systems that outperform the competition.</p>
+        <!-- Project Grid (Reactive Image Animation) -->
+        <section class="work" id="work">
+            <div class="section-label">PROJECTS / 001</div>
+            <div class="work-grid">
+                <div class="project-card">
+                    <div class="img-reveal">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1528" alt="Design">
+                    </div>
+                    <div class="project-info">
+                        <h3>Digital Architecture</h3>
+                        <span>UI/UX DESIGN</span>
                     </div>
                 </div>
-                <div class="neon-card">
-                    <div class="card-content">
-                        <i class="fa-solid fa-bezier-curve"></i>
-                        <h3>Experience</h3>
-                        <p>Designing interfaces that users don't just use—they feel.</p>
+                <div class="project-card">
+                    <div class="img-reveal">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1470" alt="Dev">
                     </div>
-                </div>
-                <div class="neon-card">
-                    <div class="card-content">
-                        <i class="fa-solid fa-bolt-lightning"></i>
-                        <h3>Performance</h3>
-                        <p>Optimizing every millisecond for the ultimate competitive edge.</p>
+                    <div class="project-info">
+                        <h3>Performance Engineering</h3>
+                        <span>WEB DEVELOPMENT</span>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- GSAP & Lenis for $10k Motion -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,67 +1,107 @@
-/* ================= CUSTOM CURSOR LOGIC ================= */
-const cursorDot = document.querySelector(".cursor-dot");
-const cursorOutline = document.querySelector(".cursor-outline");
+/* ================= REACTIVE CANVAS BACKGROUND ================= */
+const canvas = document.getElementById('canvas-bg');
+const ctx = canvas.getContext('2d');
 
-window.addEventListener("mousemove", (e) => {
-    const posX = e.clientX;
-    const posY = e.clientY;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-    cursorDot.style.left = `${posX}px`;
-    cursorDot.style.top = `${posY}px`;
+let particles = [];
+const mouse = { x: null, y: null };
 
-    cursorOutline.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-    }, { duration: 500, fill: "forwards" });
+window.addEventListener('mousemove', (e) => {
+    mouse.x = e.x;
+    mouse.y = e.y;
 });
 
-// Cursor Hover Effect
-const interactiveElements = document.querySelectorAll('a, .btn, i, .service-card');
-interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        cursorOutline.style.width = '80px';
-        cursorOutline.style.height = '80px';
-        cursorOutline.style.backgroundColor = 'rgba(34, 211, 238, 0.1)';
-    });
-    el.addEventListener('mouseleave', () => {
-        cursorOutline.style.width = '40px';
-        cursorOutline.style.height = '40px';
-        cursorOutline.style.backgroundColor = 'transparent';
-    });
-});
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.size > 0.2) this.size -= 0.01;
+    }
+    draw() {
+        ctx.fillStyle = '#00f2ff';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
 
-/* ================= TYPED TEXT ================= */
-new Typed('#typed-text', {
-    strings: ['Web Engineer', 'Creative Designer', 'Motion Artist'],
-    typeSpeed: 60,
-    backSpeed: 40,
-    loop: true,
-    cursorChar: '_'
-});
+function init() {
+    for (let i = 0; i < 100; i++) {
+        particles.push(new Particle());
+    }
+}
 
-/* ================= SCROLL REVEAL ================= */
-const sr = ScrollReveal({
-    origin: 'bottom',
-    distance: '60px',
-    duration: 1500,
-    delay: 200,
-    reset: true
-});
-
-sr.reveal('.welcome-tag, h1, .btn-group', { interval: 200 });
-sr.reveal('.service-card', { interval: 150 });
-sr.reveal('.home-img', { origin: 'right', scale: 0.8 });
-
-/* ================= MAGNETIC EFFECT (Extra Credit) ================= */
-document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-        const position = btn.getBoundingClientRect();
-        const x = e.pageX - position.left - position.width / 2;
-        const y = e.pageY - position.top - position.height / 2;
+function animateBackground() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
         
-        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.5}px)`;
+        // Draw lines between particles
+        for (let j = i; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < 100) {
+                ctx.strokeStyle = `rgba(0, 242, 255, ${1 - distance/100})`;
+                ctx.lineWidth = 0.5;
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.stroke();
+            }
+        }
+    }
+    if (particles.length < 150) particles.push(new Particle());
+    particles = particles.filter(p => p.size > 0.3);
+    requestAnimationFrame(animateBackground);
+}
+
+init();
+animateBackground();
+
+/* ================= CURSOR REACTIVITY ================= */
+const cursor = document.querySelector('.cursor-follower');
+
+document.addEventListener('mousemove', (e) => {
+    gsap.to(cursor, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.3
     });
-    btn.addEventListener('mouseout', () => {
-        btn.style.transform = `translate(0px, 0px)`;
+});
+
+// Interactive Elements Hover
+const links = document.querySelectorAll('a, .neon-card, .neon-btn');
+links.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'scale(4)';
+        cursor.style.background = '#ff00ea';
+        cursor.style.boxShadow = '0 0 30px #ff00ea';
     });
+    link.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'scale(1)';
+        cursor.style.background = '#00f2ff';
+        cursor.style.boxShadow = '0 0 20px #00f2ff';
+    });
+});
+
+/* ================= GSAP ENTRANCE ================= */
+gsap.from(".hero-title", { opacity: 0, y: 100, duration: 1.5, delay: 0.5 });
+gsap.from(".hero-subtext", { opacity: 0, x: -50, duration: 1, delay: 1 });
+gsap.from(".neon-card", { 
+    opacity: 0, 
+    stagger: 0.2, 
+    duration: 1, 
+    scrollTrigger: ".services" 
 });

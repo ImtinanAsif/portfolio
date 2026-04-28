@@ -19,16 +19,16 @@
             <a href="#home" class="active">Home</a>
             <a href="#education">Education</a>
             <a href="#services">Services</a>
-            <a href="#testimonials">Testimonials</a>
+            <a href="#testimonials">Reviews</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
     <section class="home" id="home">
         <div class="home-content">
-            <h1>Hi, It's <span>Imtinan</span></h1>
+            <h1>Hi, I'm <span>Imtinan</span></h1>
             <h3 class="text-animation">I'm a <span id="typed-text"></span></h3>
-            <p>I am a passionate Web Developer and Graphic Designer with a focus on creating clean, functional, and user-centric digital experiences.</p>
+            <p>Crafting high-performance websites and stunning visual identities. I bridge the gap between complex code and intuitive design to help brands stand out in the digital age.</p>
             
             <div class="social-icons">
                 <a href="#"><i class="fa-brands fa-github"></i></a>
@@ -38,20 +38,86 @@
 
             <div class="btn-group">
                 <a href="#contact" class="btn">Hire Me</a>
-                <a href="#contact" class="btn">Contact</a>
+                <a href="#contact" class="btn secondary">Contact</a>
             </div>
         </div>
 
         <div class="home-img">
-            <img src="your-image.jpg" alt="Imtinan Asif">
+            <div class="glowing-sphere"></div>
+            <!-- Replace with your actual image path -->
+            <img src="https://via.placeholder.com/600" alt="Imtinan Asif">
         </div>
     </section>
 
-    <!-- Use the CSS from the previous turn for Education, Services, and Contact -->
+    <section class="education" id="education">
+        <h2 class="heading">Education</h2>
+        <div class="timeline-items">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2021 - 2023</div>
+                <div class="timeline-content">
+                    <h3>Intermediate (Pre-Engineering)</h3>
+                    <p>Focused on analytical thinking and physics, providing a strong foundation for software logic.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2023 - Present</div>
+                <div class="timeline-content">
+                    <h3>Web Development Mastery</h3>
+                    <p>Self-taught and certified in modern frontend frameworks and UI/UX principles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Typed.js Script -->
+    <section class="services" id="services">
+        <h2 class="heading">Services</h2>
+        <div class="services-container">
+            <div class="service-box">
+                <i class="fa-solid fa-code"></i>
+                <h3>Web Development</h3>
+                <p>Clean, responsive, and SEO-optimized websites built with the latest technologies.</p>
+            </div>
+            <div class="service-box">
+                <i class="fa-solid fa-palette"></i>
+                <h3>Graphic Design</h3>
+                <p>Branding, logos, and social media assets that capture your brand's essence.</p>
+            </div>
+            <div class="service-box">
+                <i class="fa-solid fa-video"></i>
+                <h3>Video Editing</h3>
+                <p>High-energy edits and motion graphics for YouTube and professional ads.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me</span></h2>
+        <form action="#">
+            <div class="input-group">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <input type="number" placeholder="Phone Number">
+                <input type="text" placeholder="Subject">
+            </div>
+            <textarea cols="30" rows="10" placeholder="Your Message" required></textarea>
+            <input type="submit" value="Send Message" class="btn">
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="social">
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <p class="copyright">&copy; 2024 Imtinan Asif | All Rights Reserved</p>
+    </footer>
+
+    <!-- Scripts -->
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <!-- ScrollReveal.js -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="script.js"></script>
 </body>

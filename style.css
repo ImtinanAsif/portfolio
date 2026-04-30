@@ -348,3 +348,22 @@ section { padding: 10rem 4%; }
 .contact .btn-hover-layer {
     background: #000;
 }
+
+
+/* SEND BUTTON MUST NOT BE FULL LIME */
+.submit-btn {
+    background: transparent !important;
+    color: #befb24 !important;
+    border: 1px solid #befb24;
+}
+
+/* LAYER MUST BE BEHIND TEXT */
+.btn-hover-layer {
+    z-index: 0;
+}
+
+.submit-btn span,
+.portfolio-btn span {
+    position: relative;
+    z-index: 2;
+}

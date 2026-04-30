@@ -80,3 +80,18 @@ section { padding: 10rem 4%; }
     .huge-text { font-size: 16vw; }
 }
 @media (max-width: 480px) { .reels-grid { grid-template-columns: 1fr; } }
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    border: 1px solid #111;
+    padding: 2rem;
+    transition: 0.4s;
+}
+.testimonial-card:hover { border-color: #befb24; }
+
+.reel-item video { opacity: 0.6; }

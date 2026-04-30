@@ -106,19 +106,42 @@
 </section>
 
 <!-- CONTACT -->
+<!-- CONTACT -->
 <section class="contact" id="contact">
-    <h2 class="huge-text">GET IN <span class="lime-text">TOUCH</span></h2>
 
-    <form id="portfolio-form">
-        <input type="text" id="user-name" placeholder="NAME" required>
-        <input type="email" id="user-email" placeholder="EMAIL" required>
-        <textarea id="user-message" placeholder="MESSAGE" required></textarea>
+    <div class="contact-header">
+        <h2 class="huge-text">GET IN <span class="lime-text">TOUCH</span></h2>
+    </div>
 
-        <button class="submit-btn">
+    <form class="contact-form" id="portfolio-form">
+
+        <div class="form-row">
+
+            <div class="input-wrap">
+                <label>NAME</label>
+                <input type="text" id="user-name" placeholder="YOUR NAME" required>
+            </div>
+
+            <div class="input-wrap">
+                <label>EMAIL</label>
+                <input type="email" id="user-email" placeholder="YOUR EMAIL" required>
+            </div>
+
+        </div>
+
+        <div class="input-wrap full">
+            <label>PROJECT DETAILS</label>
+            <textarea id="user-message" rows="1" placeholder="TELL ME ABOUT YOUR VISION" required></textarea>
+        </div>
+
+        <!-- ORIGINAL BUTTON (UNCHANGED) -->
+        <button type="submit" class="submit-btn">
             <span>SEND REQUEST</span>
             <div class="btn-hover-layer"></div>
         </button>
+
     </form>
+
 </section>
 
 </main>

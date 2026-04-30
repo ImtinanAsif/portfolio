@@ -63,3 +63,47 @@ form.addEventListener('submit', (e) => {
     const body = encodeURIComponent(`Client: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`);
     window.location.href = `mailto:your-email@gmail.com?subject=${subject}&body=${body}`;
 });
+
+
+// PROFILE IMAGE ANIMATION
+gsap.from(".profile-img", {
+    scale: 0,
+    opacity: 0,
+    duration: 1.2,
+    ease: "power4.out"
+});
+
+gsap.to(".profile-img", {
+    scrollTrigger: {
+        trigger: ".profile-img",
+        start: "top 80%"
+    },
+    scale: 1,
+    duration: 1
+});
+
+// HOVER GLOW EFFECT (GSAP)
+const profile = document.querySelector(".profile-img");
+
+profile.addEventListener("mouseenter", () => {
+    gsap.to(profile, {
+        scale: 1.05,
+        boxShadow: "0 0 40px #befb24",
+        duration: 0.4
+    });
+});
+
+profile.addEventListener("mouseleave", () => {
+    gsap.to(profile, {
+        scale: 1,
+        boxShadow: "0 0 0px #befb24",
+        duration: 0.4
+    });
+});
+
+// PORTFOLIO BUTTON ANIMATION
+gsap.from(".portfolio-btn", {
+    y: 50,
+    opacity: 0,
+    delay: 0.5
+});

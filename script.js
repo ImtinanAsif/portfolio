@@ -30,14 +30,12 @@ gsap.utils.toArray('.section-label').forEach(label => {
 
 // 4. REEL HOVER-PLAY ENGINE
 const reels = document.querySelectorAll('.reel-item');
+
 reels.forEach(reel => {
     const vid = reel.querySelector('video');
-    
+
     reel.addEventListener('mouseenter', () => {
-        const playPromise = vid.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(() => { /* Prevent uncaught console errors */ });
-        }
+        vid.play().catch(() => {});
     });
 
     reel.addEventListener('mouseleave', () => {
@@ -45,12 +43,12 @@ reels.forEach(reel => {
         vid.currentTime = 0;
     });
 
-    // Mobile Autoplay
     ScrollTrigger.create({
         trigger: reel,
         start: "top 80%",
-        onEnter: () => { if(window.innerWidth < 768) vid.play(); },
-        onLeaveBack: () => { if(window.innerWidth < 768) vid.pause(); }
+        onEnter: () => vid.play(),
+        onLeave: () => vid.pause(),
+        onLeaveBack: () => vid.pause()
     });
 });
 

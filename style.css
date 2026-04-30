@@ -293,3 +293,58 @@ section { padding: 10rem 4%; }
 .contact-header .reveal-text {
     font-size: clamp(4rem, 10vw, 10rem);
 }
+
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* LEFT TEXT */
+.hero-title {
+    max-width: 60%;
+}
+
+/* RIGHT IMAGE */
+.hero-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* BIGGER PROFILE IMAGE */
+.profile-img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #222;
+    transition: 0.4s;
+}
+
+.contact {
+    background: var(--lime);
+    color: #000;
+}
+
+.contact .reveal-text,
+.contact label,
+.contact input,
+.contact textarea {
+    color: #000;
+}
+
+.contact .input-wrap {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.contact .submit-btn {
+    border: 1px solid #000;
+    color: #000;
+}
+
+.contact .btn-hover-layer {
+    background: #000;
+}

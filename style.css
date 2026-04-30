@@ -241,3 +241,55 @@ section { padding: 10rem 4%; }
         gap: 1.5rem;
     }
 }
+
+
+/* HERO LAYOUT */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* PROFILE IMAGE */
+.profile-wrap {
+    margin-bottom: 2rem;
+}
+
+.profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #222;
+    transition: 0.4s;
+}
+
+/* PORTFOLIO BUTTON (same style as contact) */
+.portfolio-btn {
+    margin-top: 2rem;
+    padding: 1.5rem 3rem;
+    border: 1px solid var(--lime);
+    background: transparent;
+    color: var(--lime);
+    font-family: 'Big Shoulders Display';
+    font-size: 1.5rem;
+    font-weight: 900;
+    position: relative;
+    overflow: hidden;
+}
+
+/* EXPERTISE LIME BACKGROUND */
+.services {
+    background: var(--lime);
+    color: #000;
+}
+
+.services .section-label,
+.services .row-desc {
+    color: #111;
+}
+
+/* CONTACT HEADING FIX */
+.contact-header .reveal-text {
+    font-size: clamp(4rem, 10vw, 10rem);
+}

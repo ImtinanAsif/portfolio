@@ -10,7 +10,7 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 // =========================
-// CURSOR FIXED
+// CURSOR (FIXED)
 // =========================
 const cursor = document.querySelector('.cursor');
 
@@ -25,7 +25,7 @@ window.addEventListener('mousemove', (e) => {
     });
 });
 
-document.querySelectorAll('a, .service-row, .reel-item, .submit-btn, input, textarea, .portfolio-btn')
+document.querySelectorAll('a, .service-row, .reel-item, input, textarea, button')
 .forEach(item => {
     item.addEventListener('mouseenter', () => {
         gsap.to(cursor, {
@@ -47,11 +47,11 @@ document.querySelectorAll('a, .service-row, .reel-item, .submit-btn, input, text
 }
 
 // =========================
-// GSAP SETUP
+// GSAP BASIC ANIMATIONS
 // =========================
 gsap.registerPlugin(ScrollTrigger);
 
-// HERO ANIMATION
+// HERO TEXT
 gsap.from(".reveal-text", {
     y: 150,
     skewY: 10,
@@ -68,33 +68,9 @@ gsap.from(".nav", {
     duration: 1
 });
 
-// SECTION LABELS
-gsap.utils.toArray(".section-label").forEach(label => {
-    gsap.from(label, {
-        opacity: 0,
-        y: 30,
-        duration: 1,
-        scrollTrigger: {
-            trigger: label,
-            start: "top 90%"
-        }
-    });
-});
-
-// REELS PLAY
-const reels = document.querySelectorAll(".reel-item");
-
-reels.forEach(reel => {
-    const vid = reel.querySelector("iframe");
-
-    ScrollTrigger.create({
-        trigger: reel,
-        start: "top 80%",
-        onEnter: () => {},
-    });
-});
-
-// PROFILE ANIMATION
+// =========================
+// PROFILE IMAGE
+// =========================
 const profile = document.querySelector(".profile-img");
 
 if (profile) {
@@ -124,17 +100,87 @@ profile.addEventListener("mouseleave", () => {
 
 }
 
-// CONTACT MAILTO
-document.getElementById("portfolio-form").addEventListener("submit", (e) => {
-    e.preventDefault();
+// =========================
+// BUTTON SWIPE ANIMATIONS (FIXED)
+// =========================
 
-    const name = document.getElementById("user-name").value;
-    const email = document.getElementById("user-email").value;
-    const msg = document.getElementById("user-message").value;
+// PORTFOLIO BUTTON (BLACK → LIME SWIPE)
+const portfolioBtn = document.querySelector(".portfolio-btn");
 
-    const subject = encodeURIComponent(`Inquiry from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`);
+if (portfolioBtn) {
 
-    window.location.href =
-        `mailto:your-email@gmail.com?subject=${subject}&body=${body}`;
+portfolioBtn.addEventListener("mouseenter", () => {
+    gsap.to(portfolioBtn, {
+        color: "#000",
+        duration: 0.3
+    });
+
+    gsap.to(portfolioBtn.querySelector(".btn-hover-layer"), {
+        left: "0%",
+        duration: 0.5,
+        ease: "power3.out"
+    });
+});
+
+portfolioBtn.addEventListener("mouseleave", () => {
+    gsap.to(portfolioBtn, {
+        color: "#befb24",
+        duration: 0.3
+    });
+
+    gsap.to(portfolioBtn.querySelector(".btn-hover-layer"), {
+        left: "-100%",
+        duration: 0.5,
+        ease: "power3.in"
+    });
+});
+
+}
+
+// SEND REQUEST BUTTON (LIME → BLACK SWIPE)
+const sendBtn = document.querySelector(".submit-btn");
+
+if (sendBtn) {
+
+sendBtn.addEventListener("mouseenter", () => {
+    gsap.to(sendBtn, {
+        color: "#befb24",
+        duration: 0.3
+    });
+
+    gsap.to(sendBtn.querySelector(".btn-hover-layer"), {
+        left: "0%",
+        duration: 0.5,
+        ease: "power3.out"
+    });
+});
+
+sendBtn.addEventListener("mouseleave", () => {
+    gsap.to(sendBtn, {
+        color: "#000",
+        duration: 0.3
+    });
+
+    gsap.to(sendBtn.querySelector(".btn-hover-layer"), {
+        left: "-100%",
+        duration: 0.5,
+        ease: "power3.in"
+    });
+});
+
+}
+
+// =========================
+// SCROLL LABELS
+// =========================
+gsap.utils.toArray(".section-label").forEach(label => {
+    gsap.from(label, {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        scrollTrigger: {
+            trigger: label,
+            start: "top 90%"
+        }
+    });
 });

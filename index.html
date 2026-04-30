@@ -24,18 +24,36 @@
     </div>
 </nav>
 
-<main id="scroll-wrapper">
+<main>
 
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-title">
-        <h1 class="reveal-text">VIDEO</h1>
-        <h1 class="reveal-text lime-stroke">EDITING</h1>
+
+    <div class="hero-left">
+
+        <!-- PROFILE IMAGE -->
+        <div class="profile-wrap">
+            <img src="your-image.jpg" class="profile-img" />
+        </div>
+
+        <div class="hero-title">
+            <h1 class="reveal-text">VIDEO</h1>
+            <h1 class="reveal-text lime-stroke">EDITING</h1>
+        </div>
+
+        <!-- PORTFOLIO BUTTON -->
+        <button class="portfolio-btn">
+            <span>PORTFOLIO</span>
+            <div class="btn-hover-layer"></div>
+        </button>
+
     </div>
+
 </section>
 
 <!-- SERVICES -->
 <section class="services" id="services">
+
     <div class="section-label">/001 EXPERTISE</div>
 
     <h2 class="reveal-text">WHAT I</h2>
@@ -52,13 +70,13 @@
         </div>
         <div class="service-row">
             <div class="row-title"><span>03</span><h2>LONG FORM</h2></div>
-            <div class="row-desc">ENGAGING STORYTELLING</div>
+            <div class="row-desc">STORYTELLING</div>
         </div>
     </div>
+
 </section>
 
 <!-- TESTIMONIALS -->
-<!-- TESTIMONIALS + REELS SECTION -->
 <section class="testimonials" id="testimonials">
 
     <div class="section-label">/002 CLIENT WORDS</div>
@@ -66,38 +84,36 @@
     <h2 class="reveal-text">REAL</h2>
     <h2 class="reveal-text lime-stroke">RESULTS</h2>
 
-    <!-- REELS (GOOGLE DRIVE PREVIEW) -->
     <div class="test-reels">
 
         <div class="reel-item">
-            <iframe src="https://drive.google.com/file/d/1-X0B8eetzXrSt5wixup7Eyo927ecqSJC/preview" allow="autoplay"></iframe>
+            <iframe src="https://drive.google.com/file/d/1-X0B8eetzXrSt5wixup7Eyo927ecqSJC/preview"></iframe>
         </div>
 
         <div class="reel-item">
-            <iframe src="https://drive.google.com/file/d/1hk_yquXqjJZ76Cw24cEFpSeg--k9P27B/preview" allow="autoplay"></iframe>
+            <iframe src="https://drive.google.com/file/d/1hk_yquXqjJZ76Cw24cEFpSeg--k9P27B/preview"></iframe>
         </div>
 
         <div class="reel-item">
-            <iframe src="https://drive.google.com/file/d/1QsLdRfndFqb8llFb-TDE4JuypZrZM850/preview" allow="autoplay"></iframe>
+            <iframe src="https://drive.google.com/file/d/1QsLdRfndFqb8llFb-TDE4JuypZrZM850/preview"></iframe>
         </div>
 
     </div>
 
-    <!-- TESTIMONIAL CARDS -->
     <div class="testimonials-grid">
 
         <div class="testimonial-card">
-            <p>"Insane editing quality. My content level jumped instantly."</p>
+            <p>"Insane editing quality."</p>
             <span>- Client</span>
         </div>
 
         <div class="testimonial-card">
-            <p>"Fast delivery + very high-quality motion graphics."</p>
+            <p>"Very professional work."</p>
             <span>- Client</span>
         </div>
 
         <div class="testimonial-card">
-            <p>"Engagement doubled after working together."</p>
+            <p>"Highly recommended."</p>
             <span>- Client</span>
         </div>
 
@@ -106,36 +122,35 @@
 </section>
 
 <!-- CONTACT -->
-<!-- CONTACT -->
 <section class="contact" id="contact">
 
     <div class="contact-header">
-        <h2 class="huge-text">GET IN <span class="lime-text">TOUCH</span></h2>
+        <h2 class="reveal-text">GET IN</h2>
+        <h2 class="reveal-text lime-stroke">TOUCH</h2>
     </div>
 
-    <form class="contact-form" id="portfolio-form">
+    <form class="contact-form">
 
         <div class="form-row">
 
             <div class="input-wrap">
                 <label>NAME</label>
-                <input type="text" id="user-name" placeholder="YOUR NAME" required>
+                <input type="text" required>
             </div>
 
             <div class="input-wrap">
                 <label>EMAIL</label>
-                <input type="email" id="user-email" placeholder="YOUR EMAIL" required>
+                <input type="email" required>
             </div>
 
         </div>
 
         <div class="input-wrap full">
             <label>PROJECT DETAILS</label>
-            <textarea id="user-message" rows="1" placeholder="TELL ME ABOUT YOUR VISION" required></textarea>
+            <textarea required></textarea>
         </div>
 
-        <!-- ORIGINAL BUTTON (UNCHANGED) -->
-        <button type="submit" class="submit-btn">
+        <button class="submit-btn">
             <span>SEND REQUEST</span>
             <div class="btn-hover-layer"></div>
         </button>
@@ -148,7 +163,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis/bundled/lenis.min.js"></script>
 <script src="script.js"></script>
 
 </body>

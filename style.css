@@ -95,3 +95,149 @@ section { padding: 10rem 4%; }
 .testimonial-card:hover { border-color: #befb24; }
 
 .reel-item video { opacity: 0.6; }
+
+/* =======================
+   TESTIMONIALS + REELS
+======================= */
+
+.testimonials {
+    padding-top: 8rem;
+}
+
+/* REELS BEFORE CARDS */
+.test-reels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 4rem 0;
+}
+
+/* REEL BOX */
+.reel-item {
+    aspect-ratio: 9/16;
+    border: 1px solid var(--border);
+    background: #050505;
+    overflow: hidden;
+    position: relative;
+    transition: 0.4s;
+}
+
+.reel-item:hover {
+    border-color: var(--lime);
+    transform: translateY(-5px);
+}
+
+/* GOOGLE DRIVE PREVIEW */
+.reel-item iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* TESTIMONIAL CARDS */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background: #050505;
+    border: 1px solid var(--border);
+    padding: 2rem;
+    transition: 0.4s;
+}
+
+.testimonial-card:hover {
+    border-color: var(--lime);
+    transform: translateY(-5px);
+}
+
+.testimonial-card p {
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card span {
+    font-size: 0.7rem;
+    color: #666;
+}
+
+/* SECTION HEADING SPACING FIX */
+.testimonials .reveal-text {
+    margin-bottom: -1rem;
+}
+
+/* =======================
+   CONTACT SECTION RESTORE
+======================= */
+
+.contact-form {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.input-wrap {
+    border-bottom: 1px solid #222;
+    padding: 1rem 0;
+    transition: 0.4s;
+}
+
+.input-wrap:hover {
+    border-color: var(--lime);
+}
+
+.input-wrap label {
+    font-size: 0.6rem;
+    font-weight: 900;
+    color: #444;
+    letter-spacing: 2px;
+}
+
+.input-wrap input,
+.input-wrap textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 1rem 0;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* FULL WIDTH TEXTAREA */
+.input-wrap.full {
+    grid-column: 1 / -1;
+}
+
+/* HEADING FIX */
+.huge-text {
+    font-family: 'Big Shoulders Display';
+    font-size: clamp(4rem, 10vw, 10rem);
+    line-height: 0.85;
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+}
+
+.lime-text {
+    color: var(--lime);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
